@@ -12,6 +12,7 @@ def sign_up_page(browser):
 
 
 @when(parsers.parse('a user enters an email: "{email}"'))
+@when(parsers.parse('a user enters an email already in use: "{email}"'))
 def enter_email(browser, email):
     email_input = browser.find_element(By.ID, 'email')
     email_input.send_keys(email)
