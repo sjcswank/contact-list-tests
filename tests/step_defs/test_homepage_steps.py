@@ -1,5 +1,6 @@
 from pytest_bdd import scenarios, when, parsers, then
 from selenium.webdriver.common.by import By
+import time
 
 
 scenarios('../features/homepage.feature')
@@ -48,4 +49,5 @@ def click_delete(browser, name):
 
 @then(parsers.parse('a contact for "{name}" will not be displayed in the contact list'))
 def no_contact(browser, name):
+    time.sleep(1)
     assert not browser.find_elements(By.XPATH, '//th[text()="' + name + '"]')
