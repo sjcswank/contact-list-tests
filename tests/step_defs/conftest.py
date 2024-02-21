@@ -1,6 +1,6 @@
 import pytest as pytest
 from selenium import webdriver
-from pytest_bdd import then, when, parsers
+from pytest_bdd import given, then, when, parsers
 from selenium.webdriver.common.by import By
 
 
@@ -30,6 +30,14 @@ def browser():
     b.quit()
 
 
+# Shared Given Steps
+
+
+@given('a user is on the login page', target_fixture='login_page')
+def login_page(browser):
+    browser.get(LOGIN_PAGE_URL)
+
+
 # Shared When Steps
 
 
@@ -42,7 +50,7 @@ def enter_email(browser, email):
 
 @when('a user clicks submit')
 def click_submit(browser):
-    submit_button = browser.find_element(By.CLASS_NAME, 'btn')
+    submit_button = browser.find_element(By.ID, 'submit')
     submit_button.click()
 
 
