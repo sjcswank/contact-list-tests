@@ -5,9 +5,12 @@ from selenium.webdriver.common.by import By
 scenarios('../features/homepage.feature')
 
 
+PASSWORD_INPUT_LOCATOR = (By.ID, 'password')
+
+
 @when(parsers.parse('a user enters a password: "{password}"'))
 def enter_password(browser, password):
-    password_input = browser.find_element(By.ID, 'password')
+    password_input = browser.find_element(*PASSWORD_INPUT_LOCATOR)
     password_input.send_keys(password)
 
 

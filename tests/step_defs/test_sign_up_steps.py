@@ -5,6 +5,10 @@ from selenium.webdriver.common.by import By
 scenarios('../features/sign_up.feature')
 
 
+PASSWORD_INPUT_LOCATOR = (By.ID, 'password1')
+CONFIRM_PASSWORD_LOCATOR = (By.ID, 'password2')
+
+
 @given('a user is on the sign up page', target_fixture='sign_up_page')
 def sign_up_page(browser):
     browser.get(SIGN_UP_PAGE_URL)
@@ -12,13 +16,13 @@ def sign_up_page(browser):
 
 @when(parsers.parse('a user enters a password: "{password}"'))
 def enter_password(browser, password):
-    password_input = browser.find_element(By.ID, 'password1')
+    password_input = browser.find_element(*PASSWORD_INPUT_LOCATOR)
     password_input.send_keys(password)
 
 
 @when(parsers.parse('a user confirms the password: "{confirmation}"'))
 def enter_confirmation(browser, confirmation):
-    confirmation_input = browser.find_element(By.ID, 'password2')
+    confirmation_input = browser.find_element(*CONFIRM_PASSWORD_LOCATOR)
     confirmation_input.send_keys(confirmation)
 
 
