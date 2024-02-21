@@ -1,3 +1,4 @@
+@Sign-Up-Page
 Feature: Contacts List Sign Up
   As a user
   I want to be able to sign up
@@ -6,8 +7,10 @@ Feature: Contacts List Sign Up
   Background:
     Given a user is on the sign up page
 
+
+  @Smoke
   Scenario: Basic Sign Up
-    When a user enters an email: "test@test.com"
+    When a user enters an email: "test@email.com"
     And a user enters a password: "1234567"
     And a user confirms the password: "1234567"
     And a user clicks submit

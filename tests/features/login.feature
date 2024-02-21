@@ -1,3 +1,4 @@
+@Login-Page
 Feature: Contact list login page
   As a user
   I want to sign in
@@ -7,6 +8,7 @@ Feature: Contact list login page
     Given a user is on the login page
 
 
+  @Smoke
   Scenario: Basic Login
     When a user enters an email: "test@test.com"
     And a user enters a password: "1234567"

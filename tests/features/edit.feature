@@ -1,3 +1,4 @@
+@Edit-Page
 Feature: Contacts list edit page
   As an authenticated user
   I want to access the edit page
@@ -16,6 +17,7 @@ Feature: Contacts list edit page
     And a user clicks the edit button for "First Last"
 
 
+  @Smoke
   Scenario: Edit page displays contact info
     Then the edit page for "First Last" will be displayed
 

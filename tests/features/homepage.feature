@@ -1,3 +1,4 @@
+@Homepage
 Feature: Contacts list home page
   as an authenticated user
   I want to access the homepage
@@ -15,6 +16,7 @@ Feature: Contacts list home page
     And a user clicks submit
 
 
+  @Smoke
   Scenario: Add Contact
     Then a contact for "First Last" is displayed in the contact list
 
@@ -24,6 +26,7 @@ Feature: Contacts list home page
     Then a contact for "First Last" will not be displayed in the contact list
 
 
+  @Smoke
   Scenario: Click Edit button
     And a user clicks the edit button for "First Last"
     Then the edit page is displayed
